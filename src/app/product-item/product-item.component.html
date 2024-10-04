@@ -1,0 +1,12 @@
+<div class="card">
+  <h4>{{product.name}}</h4>
+  <img [src]="product.picture_url" alt="">
+    <div class="product">
+      <button (click)="increase()">+</button>
+      <span>{{product.quantity}}db</span>
+      <button (click)="decrease()">-</button>
+    </div>
+    <div class="quantity">
+      Ár: {{product.price}}Ft
+    </div>
+</div>

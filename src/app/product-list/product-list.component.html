@@ -1,0 +1,13 @@
+<ul>
+  @for (product of products; track $index) {
+    <li>
+      <img [src]="product.picture_url" [alt]="product.name" (click)="addItem(product)">
+    </li>
+  }
+</ul>
+
+<div class="cart-items">
+  @for (item of itemsInCart; track $index) {
+    <app-product-item [product]="item" (productDeleted)="deleteItem($event)"></app-product-item>
+  }
+</div>
