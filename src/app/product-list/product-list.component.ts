@@ -12,6 +12,7 @@ export class ProductListComponent {
   totalsum: number = 0;
 
   calculate(){
+    this.totalsum = 0;
     this.itemsInCart.forEach(element => {
       this.totalsum += element.price * element.quantity
     });

@@ -11,15 +11,18 @@ export class ProductItemComponent implements OnInit {
   }
   @Input() product!: ProductModel;
   @Output() productDeleted = new EventEmitter<number>();
+  @Output() quantityChange = new EventEmitter<void>();
 
   increase() {
-    this.product.quantity++;;
+    this.product.quantity++;
+    this.quantityChange.emit();
   }
 
   decrease(){
     this.product.quantity--;
     if(this.product.quantity == 0){
       this.productDeleted.emit(this.product.id)
+      this.quantityChange.emit();
     }
   }
 }
