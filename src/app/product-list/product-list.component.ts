@@ -9,10 +9,19 @@ import { ProductModel } from '../models/product.model';
 export class ProductListComponent {
   itemsInCart: ProductModel[] = [];
 
+  totalsum: number = 0;
+
+  calculate(){
+    this.itemsInCart.forEach(element => {
+      this.totalsum += element.price * element.quantity
+    });
+  }
+
   addItem(product: ProductModel) {
     product.quantity++;
     if (!this.itemsInCart.includes(product)) {
       this.itemsInCart.push(product);
+      this.calculate();
     }
   }
 
